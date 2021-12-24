@@ -1,0 +1,20 @@
+#root{
+    display:flex
+}
+.redcolor{
+    color:rgba(0, 0, 255, 0.555)
+}
+.image{
+    width:400px
+}
+#note{
+    width:400px;
+    padding:10px
+}
+#btn{
+    padding:10px;
+    color:blue
+}
+#container{
+    padding:20px;
+}
