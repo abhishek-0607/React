@@ -16,12 +16,16 @@ document.getElementById("root").append(img)
 const btn = document.getElementById("btn")
 
 btn.addEventListener("click",addnote);
-
+let count = 0
 function addnote(){
     const note = document.getElementById("note");
     console.log(note.value)
-    const makenote = document.createElement("h3");
-    makenote.innerText = note.value
-    div.append(makenote)
+    if(note.value!=""){
+        count++
+        const makenote = document.createElement("h3");
+        makenote.innerText = count+". "+ note.value
+        div.append(makenote)
+    }
+
 
 }
