@@ -3,7 +3,8 @@ import './App.css';
 // import Todos from './components/Todo';
 
 function App() {
-  // const arr = [1,2,3,4,5];
+  const arr = ["Android","Blackberry","iPhone","Windows Phone"];
+  const arr2 = ["Samsung", "Apple","HTC","Micromax"]
 
   const [count,setCount]= useState(0);
 
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className="App">
 
-      <h1>counter: {count}</h1>
+      <h1 id="counter">counter: {count}</h1>
       { count < 10 && <div>
         <button onClick={()=>add(1)}>Add</button>
         <button onClick={()=>add(-1)}>Reduce</button>
@@ -31,8 +32,23 @@ function App() {
       </Todos>
       ))}
       <img alt="test" src={logo} width={540} /> */}
+
+      <h1>Mobile Operating System</h1>
+      <List val= {arr}/>
+
+      <h1>Mobile Manufacturers</h1>
+      <List val= {arr2}/>
+      
+
+
     </div>
   );
 }
+function List({val}){
+  return <ul>
+    {val.map((e)=>(<li>{e}</li>))}
+  </ul>
+}
+
 
 export default App;
