@@ -10,13 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* hello React 3
-      {arr.map((e)=>(
-      <Todos num = {e}>
-        <h1>test: {e}</h1>
-      </Todos>
-      ))}
-     */}
+
 
       <h1>Mobile Operating System</h1>
       <List val= {arr}/>
