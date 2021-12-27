@@ -18,7 +18,7 @@ function App() {
       { count < 10 && (<div>
         <button onClick={()=>add(1)}>Add</button>
         <button onClick={()=>add(-1)}>Reduce</button>
-        <button onClick={()=>double()}>Reduce</button>
+        <button onClick={()=>double()}>Double</button>
         <div>Counter is {count%2==0?"even":"odd"}</div>
         {/* {count%2==0?<h3>Even</h3>:<h3>Odd</h3>} */}
         
