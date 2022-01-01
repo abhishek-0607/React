@@ -1,6 +1,6 @@
-import "./todo.css"
+import "./todo.css";
 
-function Todos({num,children}){
-    return <div className= "todo">{children}</div>
+function Todos({ num, children }) {
+  return <div className="todo">{children}</div>;
 }
-export default Todos
+export default Todos;
