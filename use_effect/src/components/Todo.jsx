@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 export const Todo = () => {
   const [text, setText] = useState("");
   const [todo, setTodo] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     getTodo();
-  }, []);
+  }, [page]);
 
   const getTodo = () => {
-    fetch("http://localhost:3001/todos")
+    fetch(`http://localhost:3001/todos?_page=${page}&_limit=3`)
       .then((d) => d.json())
       .then((res) => {
         setTodo(res);
@@ -44,6 +45,11 @@ export const Todo = () => {
       {todo.map((e, i) => (
         <div key={i}>{e.title}</div>
       ))}
+
+      <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+        Prev
+      </button>
+      <button onClick={() => setPage(page + 1)}>Next</button>
     </div>
   );
 };

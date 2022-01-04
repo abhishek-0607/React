@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "title": "",
-      "status": false,
-      "id": 1
-    },
-    {
       "title": "learn react",
       "status": false,
       "id": 2
@@ -21,12 +16,12 @@
       "id": 4
     },
     {
-      "title": "learning react",
+      "title": "learn redux",
       "status": false,
       "id": 5
     },
     {
-      "title": "learning useState",
+      "title": "learn HTML CSS",
       "status": false,
       "id": 6
     }
