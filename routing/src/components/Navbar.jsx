@@ -17,6 +17,9 @@ export const Navbar = () => {
       <Link to="/users" style={{ margin: "10px", textDecoration: "none" }}>
         Users
       </Link>
+      <Link to="/login" style={{ margin: "10px", textDecoration: "none" }}>
+        Login
+      </Link>
     </div>
   );
 };

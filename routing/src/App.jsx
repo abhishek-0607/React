@@ -5,6 +5,7 @@ import { About } from "./components/About";
 import { Products } from "./components/Products";
 import { Users } from "./components/Users";
 import { UserDetails } from "./components/UserDetails";
+import { Login } from "./components/Login";
 
 import { Navbar } from "./components/Navbar";
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/product/:id" element={<Products />}></Route>
         <Route path="/users" element={<Users />}></Route>
         <Route path="/users/:userid" element={<UserDetails />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </div>
   );
