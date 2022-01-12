@@ -1,31 +1,27 @@
-import { Todoinput } from "./Todoinput";
-import { Todoitem } from "./Todoitem";
+import { Groceryinput } from "./Groceryinput";
+import { Groceryitem } from "./Groceryitem";
 import { nanoid } from "nanoid";
-
 import { useState } from "react";
 
-export const Todo = () => {
+export const Grocery = () => {
   const [list, setList] = useState([]);
   const handleClick = (data) => {
     console.log("Data in parent: ", data);
     const payload = {
       title: data,
-      status: false,
       id: nanoid(7),
     };
     setList([...list, payload]);
   };
-  const handleToggle = (id) => {
-    //delete this id from main list
-    //list.filter()
+  const deleteItem = (id) => {
     setList((list) => list.filter((e) => e.id !== id));
-    console.log(id);
   };
+
   return (
     <>
-      <Todoinput getData={handleClick} />
+      <Groceryinput getData={handleClick} />
       {list.map((e) => (
-        <Todoitem handleToggle={handleToggle} key={e.id} {...e} />
+        <Groceryitem deleteItem={deleteItem} key={e.id} {...e} />
       ))}
     </>
   );
