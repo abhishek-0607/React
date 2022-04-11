@@ -5,10 +5,10 @@ import App from "./App";
 import { CartContextProvider } from "./contexts/CartContext";
 
 ReactDOM.render(
-  <CartContextProvider>
-    <React.StrictMode>
+  <React.StrictMode>
+    <CartContextProvider>
       <App />
-    </React.StrictMode>
-  </CartContextProvider>,
+    </CartContextProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
