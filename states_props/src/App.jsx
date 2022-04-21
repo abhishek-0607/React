@@ -25,12 +25,13 @@ function App() {
         </div>
       )}
 
-      {/* hello React 3
+      hello React 3
       {arr.map((e)=>(
       <Todos num = {e}>
-        <h1 className="child">test: {e}</h1>
+          <h1 className="child">test: {e}</h1>
+          <img />
       </Todos>
-      ))} */}
+      ))}
     </div>
   );
 }
