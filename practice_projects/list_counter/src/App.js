@@ -1,15 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Todo } from "./components/Todo/Todo";
-import { Parenttochild } from "./components/Parenttochild";
-import { Childtoparent } from "./components/Childtoparent";
+import { Todo } from "./components/NewTodo/Todo";
 
 function App() {
   return (
     <div className="App">
-      <Todo />
+      {/* <Todo />
       <Parenttochild />
       <Childtoparent />
+      <Siblings /> */}
+      <Todo />
     </div>
   );
 }

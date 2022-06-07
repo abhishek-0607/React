@@ -25,7 +25,6 @@ function Childtoparent() {
           handlechange(-1);
         }}
       />
-      ;
     </div>
   );
 }
