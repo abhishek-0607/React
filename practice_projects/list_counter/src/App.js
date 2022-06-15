@@ -1,38 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-// import { Todo } from "./components/NewTodo/Todo";
-
-const initState = {
-  name: "",
-  age: "",
-  email: "",
-};
+import { Todo } from "./components/NewTodo/Todo";
+import Useref1 from "./components/Useref1";
 
 function App() {
-  const [data, setData] = useState(initState);
-  const { name, age, email } = data;
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
-  };
-
-  const handleClick = () => {
-    console.log(data);
-  };
   return (
     <div className="App">
-      <input name="name" value={name} onChange={handleChange} />
-      <input name="email" value={email} onChange={handleChange} />
-      <input name="age" value={age} onChange={handleChange} />
+      <Todo />
 
-      <button onClick={handleClick}>BUTTON</button>
+      <Useref1 />
 
       {/* <Todo />
       <Parenttochild />
       <Childtoparent />
       <Siblings /> */}
-
-      {/* <Todo /> */}
     </div>
   );
 }
