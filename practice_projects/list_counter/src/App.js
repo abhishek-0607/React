@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
 import Form1 from "./components/Form";
+import Useeffect from "./components/Useeffect";
+import Useeffext1 from "./components/Useeffext1";
 
 function App() {
   return (
     <div className="App">
-      <Form1 />
+      {/* <Form1 /> */}
       {/* <Todo />
 
       <Useref1 />
@@ -15,6 +17,9 @@ function App() {
       <Parenttochild />
       <Childtoparent />
       <Siblings /> */}
+
+      {/* <Useeffect /> */}
+      <Useeffext1 />
     </div>
   );
 }
