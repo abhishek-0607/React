@@ -13,7 +13,7 @@ export default function Useref2() {
     <div ref={ref}>
       <h1>Image</h1>
       <input type="file" ref={ref} />
-      <button onClick={onSubmit}></button>
+      <button onClick={onSubmit}>submit</button>
     </div>
   );
 }

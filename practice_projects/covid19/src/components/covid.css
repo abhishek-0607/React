@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  width: 1000px;
+
+  flex-grow: repeat(3, 30%);
+}
+.cardMain {
+  width: 200px;
+  background-color: aqua;
+  margin: 10px;
+}

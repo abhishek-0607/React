@@ -1,16 +1,15 @@
 import React from "react";
 import "./App.css";
-import { Todo } from "./components/NewTodo/Todo";
-import Useref1 from "./components/Useref1";
-import Useref2 from "./components/Useref2";
+import Form1 from "./components/Form";
 
 function App() {
   return (
     <div className="App">
-      <Todo />
+      <Form1 />
+      {/* <Todo />
 
       <Useref1 />
-      <Useref2 />
+      <Useref2 /> */}
 
       {/* <Todo />
       <Parenttochild />
