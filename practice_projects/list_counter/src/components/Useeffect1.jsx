@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Useeffext1 = () => {
+const Useeffect1 = () => {
   const [title, setTitle] = useState("");
   const [data, setData] = useState([]);
 
@@ -74,9 +74,13 @@ const Useeffext1 = () => {
 
       <br />
       <h3>Page: {page}</h3>
+      <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+        Previous
+      </button>
+
       <button onClick={() => setPage(page + 1)}>Next</button>
     </div>
   );
 };
 
-export default Useeffext1;
+export default Useeffect1;

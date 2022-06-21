@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Form1 from "./components/Form";
 import Useeffect from "./components/Useeffect";
-import Useeffext1 from "./components/Useeffext1";
+import Useeffect1 from "./components/Useeffect1";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Siblings /> */}
 
       {/* <Useeffect /> */}
-      <Useeffext1 />
+      <Useeffect1 />
     </div>
   );
 }
