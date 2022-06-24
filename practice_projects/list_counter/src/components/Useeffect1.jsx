@@ -41,7 +41,7 @@ const Useeffect1 = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        return getTodos();
+        return getTodos(page);
       })
       .catch((e) => {
         setIsError(true);

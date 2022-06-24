@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+// import { Navbar } from "./components/Navbar";
 import { Button, Div } from "./styled/Button";
 
 function App() {

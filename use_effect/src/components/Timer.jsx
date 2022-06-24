@@ -7,6 +7,7 @@ export const Timer = () => {
     const interval = setInterval(() => {
       setCounter((p) => {
         if (p === 0) {
+          //clearInterval(interval)
           return 0;
         }
         return p - 1;
