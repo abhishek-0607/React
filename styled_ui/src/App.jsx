@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import BasicButtons from "./components/Button";
 // import { Navbar } from "./components/Navbar";
 import { Button, Div } from "./styled/Button";
 
@@ -26,6 +27,8 @@ function App() {
       >
         theme toggle
       </button>
+
+      <BasicButtons />
     </div>
   );
 }
