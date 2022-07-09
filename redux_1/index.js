@@ -1,5 +1,7 @@
-//const action = { type: "INC_COUNT", payload: 1 };
-const { createStore } = require("redux");
+import { createStore } from "redux";
+
+const incCountAction = { type: "INC_COUNT", payload: 1 };
+const decCountAction = { type: "DEC_COUNT", payload: 1 };
 
 // class Store {
 //   constructor(reducer, init) {
@@ -19,23 +21,29 @@ const reducer = (state, { type, payload }) => {
     case "INC_COUNT":
       return { ...state, count: state.count + payload };
     case "DEC_COUNT":
-      return { ...state, count: state.count + payload };
+      return { ...state, count: state.count - payload };
     case "ADD_TODO":
-      return { ...state, count: state.count + payload };
+      return { ...state, todo: [...state.todo, payload] };
+
     default:
       return state;
   }
-  //   if (action.type === "INC_COUNT") {
-
-  //   }
-  //   return state;
 };
+
 const init = { count: 0, todo: [] };
 
 const store = createStore(reducer, init);
 
 console.log(store.getState());
 
-store.dispatch({ type: "INC_COUNT", payload: 1 });
+store.dispatch(incCountAction);
+store.dispatch(incCountAction);
+console.log(store.getState());
+
+store.dispatch(decCountAction);
+store.dispatch({
+  type: "ADD_TODO",
+  payload: { title: "Learn Redux", status: false },
+});
 
 console.log(store.getState());

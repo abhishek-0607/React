@@ -8,6 +8,7 @@ import { UserDetails } from "./components/UserDetails";
 import { Login } from "./components/Login";
 
 import { Navbar } from "./components/Navbar";
+import { PrivateRoute } from "./common/PrivateRoute";
 function App() {
   return (
     <div className="App">
@@ -16,8 +17,22 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/product/:id" element={<Products />}></Route>
-        <Route path="/users" element={<Users />}></Route>
-        <Route path="/users/:userid" element={<UserDetails />}></Route>
+        <Route
+          path="/users"
+          element={
+            <PrivateRoute>
+              <Users />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="/users/:userid"
+          element={
+            <PrivateRoute>
+              <UserDetails />
+            </PrivateRoute>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
     </div>

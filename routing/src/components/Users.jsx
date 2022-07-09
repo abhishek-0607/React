@@ -10,7 +10,6 @@ export const Users = () => {
           style={{
             marginBottom: "10px",
             textDecoration: "none",
-            background: "grey",
           }}
         >
           <Link to={`/users/${e}`}>User{e}</Link>

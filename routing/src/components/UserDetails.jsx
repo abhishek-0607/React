@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 export const UserDetails = () => {
+  const { token } = useContext(AuthContext);
   const { userid } = useParams();
   const [user, setUser] = useState({});
   useEffect(() => {
@@ -12,9 +14,10 @@ export const UserDetails = () => {
         console.log(d.data);
       });
   }, [userid]);
-  // if (true) {
-  //   return <Navigate to={"/login"} />;
-  // }
+
+  if (!token) {
+    return <Navigate to={"/login"} />;
+  }
   return (
     <div>
       <img src={user.avatar} alt="test" />
