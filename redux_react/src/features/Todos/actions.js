@@ -6,13 +6,8 @@ import {
   GET_TODO_ERROR,
   GET_TODO_LOADING,
   GET_TODO_SUCCESS,
-  INC_COUNT,
   REMOVE_TODO,
 } from "./actionTypes";
-
-export const incCount = (data) => {
-  return { type: INC_COUNT, payload: data };
-};
 
 export const addTodo = (data) => {
   return { type: ADD_TODO, payload: data };
@@ -43,3 +38,28 @@ export const getTodoLoading = (err) => {
 export const getTodoError = (err) => {
   return { type: GET_TODO_ERROR, payload: err };
 };
+
+export const getData = () => (dispatch) => {
+  dispatch(getTodoLoading());
+  fetch("http://localhost:8080/todos")
+    .then((res) => res.json())
+    .then((data) => dispatch(getTodoSuccess(data)))
+    .catch((e) => dispatch(getTodoError(e)));
+};
+
+// export const addData = () => (dispatch) => {
+//   dispatch(addTodoLoading());
+//   fetch("http://localhost:8080/todos", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ status: false, title: text }),
+//   })
+//     .then((d) => d.json())
+//     .then((res) => {
+//       dispatch(addTodoSuccess(res));
+//       getTodos();
+//     })
+//     .catch((err) => {
+//       dispatch(addTodoError(err));
+//     });
+// };

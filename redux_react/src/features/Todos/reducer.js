@@ -6,18 +6,13 @@ import {
   GET_TODO_ERROR,
   GET_TODO_LOADING,
   GET_TODO_SUCCESS,
-  INC_COUNT,
   REMOVE_TODO,
 } from "./actionTypes";
 
-// count reducer
-// const initState = { count: 0, todos: [] };
 const initState = { loading: false, todos: [], error: false };
 
 export const reducer = (state = initState, { type, payload }) => {
   switch (type) {
-    // case INC_COUNT:
-    //   return { ...state, count: state.count + payload };
     case ADD_TODO:
       return { ...state, todos: [...state.todos, payload] };
     case ADD_TODO_LOADING:

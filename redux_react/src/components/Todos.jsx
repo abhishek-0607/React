@@ -2,32 +2,34 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
+  addData,
   addTodoError,
   addTodoLoading,
   addTodoSuccess,
+  getData,
   getTodoError,
   getTodoSuccess,
-} from "../store/actions";
+} from "../features/Todos/actions";
 
 export const Todos = () => {
   const [text, setText] = useState("");
 
-  const { todos, loading, error } = useSelector(
+  const { loading, todos, error } = useSelector(
     (state) => ({
-      todos: state.todos,
-      loading: state.loading,
-      error: state.error,
-    }),
-    function (prev, curr) {
-      if (
-        prev.todos === curr.todos &&
-        prev.loading === curr.loading &&
-        prev.error === curr.error
-      ) {
-        return true;
-      }
-      return false;
-    }
+      loading: state.todosState.loading,
+      todos: state.todosState.todos,
+      error: state.todosState.error,
+    })
+    // function (prev, curr) {
+    //   if (
+    //     prev.todosState.todos === curr.todosState.todos &&
+    //     prev.todosState.loading === curr.todosState.loading &&
+    //     prev.todosState.error === curr.todosState.error
+    //   ) {
+    //     return true;
+    //   }
+    //   return false;
+    // }
   );
   const dispatch = useDispatch();
 
@@ -36,17 +38,19 @@ export const Todos = () => {
   }, []);
 
   async function getTodos() {
-    try {
-      dispatch(addTodoLoading());
-      const data = await fetch("http://localhost:8080/todos");
-      const res = await data.json();
-      dispatch(getTodoSuccess(res));
-    } catch (err) {
-      dispatch(getTodoError(err));
-    }
+    dispatch(getData());
+    // try {
+    //   dispatch(addTodoLoading());
+    //   const data = await fetch("http://localhost:8080/todos");
+    //   const res = await data.json();
+    //   dispatch(getTodoSuccess(res));
+    // } catch (err) {
+    //   dispatch(getTodoError(err));
+    // }
   }
 
   const addTodo = () => {
+    // dispatch(addData());
     dispatch(addTodoLoading());
     fetch("http://localhost:8080/todos", {
       method: "POST",
@@ -80,7 +84,7 @@ export const Todos = () => {
       <button onClick={addTodo}>Add Todo</button>
       <div>
         {todos.map((todo) => (
-          <h3>
+          <h3 key={todo.id}>
             {todo.title}-{!todo.status ? "Not Done" : "Done"}
           </h3>
         ))}
