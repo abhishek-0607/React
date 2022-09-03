@@ -5,10 +5,10 @@ export const Todo = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getTodo();
+    getTodo(page);
   }, [page]);
 
-  const getTodo = () => {
+  const getTodo = async (page) => {
     fetch(`http://localhost:3001/todos?_page=${page}&_limit=3`)
       .then((d) => d.json())
       .then((res) => {
