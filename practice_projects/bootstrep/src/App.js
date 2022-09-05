@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
 import Counter from "./components/Counter";
 import { Todo } from "./components/Todo/Todo";
+import Classpractice from "./components/Classpractice";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Counter />
 
       <Todo />
+      <Classpractice />
     </>
   );
 }
