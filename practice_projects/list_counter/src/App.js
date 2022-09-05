@@ -8,7 +8,7 @@ import Useeffect1 from "./components/Useeffect1";
 function App() {
   return (
     <div className="App">
-      {/* <Form1 /> */}
+      <Form1 />
       {/* <Todo />
 
       <Useref1 />
@@ -19,8 +19,8 @@ function App() {
       <Childtoparent />
       <Siblings /> */}
 
-      {/* <Useeffect /> */}
-      {/* <Useeffect1 /> */}
+      <Useeffect />
+      <Useeffect1 />
 
       <TodoUseEffect />
     </div>
