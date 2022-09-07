@@ -84,11 +84,22 @@ export default class News extends Component {
     },
   ];
   constructor() {
+    console.log("contructor");
     super();
-    this.state = { articles: this.articles, loading: false };
+    this.state = { articles: [], loading: false };
+  }
+  async componentDidMount() {
+    console.log("did mount");
+    const res = await fetch(
+      "https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5"
+    );
+    const data = await res.json();
+    // console.log(data.articles);
+    this.setState({ articles: data.articles });
   }
 
   render() {
+    console.log("render");
     return (
       <div className="container my-3">
         <h2>Top headlines</h2>
@@ -96,9 +107,12 @@ export default class News extends Component {
           {this.state.articles.map((e, i) => (
             <div className="col-md-4" key={i}>
               <Newsitem
-                title={e.title}
-                description={e.description}
+                title={e.title != null ? e.title.slice(0, 40) : ""}
+                description={
+                  e.description != null ? e.description.slice(0, 85) : ""
+                }
                 imgUrl={e.urlToImage}
+                newsUrl={e.url}
               />
             </div>
           ))}
