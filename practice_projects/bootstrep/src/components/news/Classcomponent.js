@@ -7,7 +7,7 @@ export default class Classcomponent extends Component {
     return (
       <div>
         <Navbar />
-        Hello this is class practice component
+
         <News />
       </div>
     );
