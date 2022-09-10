@@ -10,18 +10,47 @@ export default class News extends Component {
   async componentDidMount() {
     console.log("did mount");
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=1&pageSize=20`
+      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=1&pageSize=${this.props.pageSize}`
     );
     const data = await res.json();
     // console.log(data.articles);
-    this.setState({ articles: data.articles });
+    this.setState({ articles: data.articles, totalResults: data.totalResults });
   }
 
-  //   handleClick(value) {
-  //     this.setState({
-  //       page: this.state.page + value,
-  //     });
-  //   }
+  handlePrevClick = async () => {
+    console.log("did mount");
+    const res = await fetch(
+      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=${
+        this.state.page - 1
+      }&pageSize=${this.props.pageSize}`
+    );
+    const data = await res.json();
+    // console.log(data.articles);
+
+    this.setState({
+      page: this.state.page - 1,
+      articles: data.articles,
+    });
+  };
+
+  handleNextClick = async () => {
+    console.log("did mount");
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+    } else {
+      const res = await fetch(
+        `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=${
+          this.state.page + 1
+        }&pageSize=${this.props.pageSize}`
+      );
+      const data = await res.json();
+      // console.log(data.articles);
+
+      this.setState({
+        page: this.state.page + 1,
+        articles: data.articles,
+      });
+    }
+  };
 
   render() {
     console.log("render");
@@ -47,14 +76,21 @@ export default class News extends Component {
             disabled={this.state.page <= 1}
             type="button"
             className="btn btn-dark"
-            // onClick={this.handleClick(-1)}
+            onClick={() => {
+              this.handlePrevClick();
+            }}
           >
             Prev
           </button>
           <button
+            disabled={
+              this.state.page + 1 > Math.ceil(this.state.totalResults / 20)
+            }
             type="button"
             className="btn btn-dark"
-            // onClick={this.handleClick(1)}
+            onClick={() => {
+              this.handleNextClick();
+            }}
           >
             Next
           </button>
