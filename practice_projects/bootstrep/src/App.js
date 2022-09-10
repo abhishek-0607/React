@@ -3,6 +3,8 @@ import "./App.css";
 // import Textform from "./components/Textform";
 // import Counter from "./components/Counter";
 // import { Todo } from "./components/Todo/Todo";
+import { BrowserRouter } from "react-router-dom";
+
 import Classcomponent from "./components/news/Classcomponent";
 
 function App() {
@@ -15,8 +17,9 @@ function App() {
       <Counter />
 
       <Todo /> */}
-
-      <Classcomponent />
+      <BrowserRouter>
+        <Classcomponent />
+      </BrowserRouter>
     </>
   );
 }
