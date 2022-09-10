@@ -8,7 +8,7 @@ export default class Classcomponent extends Component {
       <div>
         <Navbar />
 
-        <News />
+        <News pageSize={20} />
       </div>
     );
   }
