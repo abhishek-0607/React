@@ -1,8 +1,20 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
+import PropTypes from "prop-types";
 
 export default class News extends Component {
+  static defaultProps = {
+    country: "in",
+    pageSize: 6,
+    category: "general",
+  };
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
+  };
+
   constructor() {
     console.log("contructor");
     super();
@@ -12,7 +24,7 @@ export default class News extends Component {
     console.log("did mount");
     this.setState({ loading: true });
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=1&pageSize=${this.props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=396c5457c306470294820130bdaebee5&page=1&pageSize=${this.props.pageSize}`
     );
     const data = await res.json();
     // console.log(data.articles);
@@ -28,7 +40,11 @@ export default class News extends Component {
     this.setState({ loading: true });
 
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=${
+      `https://newsapi.org/v2/top-headlines?country=${
+        this.props.country
+      }&category=${
+        this.props.category
+      }&apiKey=396c5457c306470294820130bdaebee5&page=${
         this.state.page - 1
       }&pageSize=${this.props.pageSize}`
     );
@@ -46,7 +62,11 @@ export default class News extends Component {
     console.log("did mount");
     this.setState({ loading: true });
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=396c5457c306470294820130bdaebee5&page=${
+      `https://newsapi.org/v2/top-headlines?country=${
+        this.props.country
+      }&category=${
+        this.props.category
+      }&apiKey=396c5457c306470294820130bdaebee5&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`
     );
