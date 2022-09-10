@@ -1,20 +1,8 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
-import PropTypes from "prop-types";
 
 export default class News extends Component {
-  static defaultProps = {
-    country: "in",
-    pageSize: 6,
-    category: "general",
-  };
-  static propTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string,
-  };
-
   constructor() {
     console.log("contructor");
     super();
@@ -84,7 +72,12 @@ export default class News extends Component {
     console.log("render");
     return (
       <div className="container my-3">
-        <h1 className="text-center">Top headlines</h1>
+        <h1
+          className="text-center"
+          style={{ margin: "30px 0", textDecoration: "underline" }}
+        >
+          Top headlines
+        </h1>
         {this.state.loading ? (
           <Spinner />
         ) : (
