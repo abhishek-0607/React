@@ -23,18 +23,6 @@ export default class Classcomponent extends Component {
           ></Route>
           <Route
             exact
-            path="/general"
-            element={
-              <News
-                key="general"
-                pageSize={6}
-                country="in"
-                category="general"
-              />
-            }
-          ></Route>
-          <Route
-            exact
             path="/business"
             element={
               <News
