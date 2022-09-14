@@ -24,7 +24,7 @@ export default class News extends Component {
   }
 
   handlePrevClick = async () => {
-    console.log("did mount");
+    console.log("handlePrevClick");
     this.setState({ loading: true });
 
     const res = await fetch(
@@ -47,7 +47,7 @@ export default class News extends Component {
   };
 
   handleNextClick = async () => {
-    console.log("did mount");
+    console.log("handleNextClick");
     this.setState({ loading: true });
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=${
