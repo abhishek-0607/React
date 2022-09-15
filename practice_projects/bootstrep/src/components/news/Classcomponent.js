@@ -4,6 +4,7 @@ import News from "./News";
 import { Route, Routes } from "react-router-dom";
 
 export default class Classcomponent extends Component {
+  pageSize = 12;
   render() {
     return (
       <div>
@@ -15,7 +16,7 @@ export default class Classcomponent extends Component {
             element={
               <News
                 key="general"
-                pageSize={6}
+                pageSize={this.pageSize}
                 country="in"
                 category="general"
               />
@@ -27,7 +28,7 @@ export default class Classcomponent extends Component {
             element={
               <News
                 key="business"
-                pageSize={6}
+                pageSize={this.pageSize}
                 country="in"
                 category="business"
               />
@@ -39,7 +40,7 @@ export default class Classcomponent extends Component {
             element={
               <News
                 key="entertainment"
-                pageSize={6}
+                pageSize={this.pageSize}
                 country="in"
                 category="entertainment"
               />
@@ -49,7 +50,12 @@ export default class Classcomponent extends Component {
             exact
             path="/sports"
             element={
-              <News key="sports" pageSize={6} country="in" category="sports" />
+              <News
+                key="sports"
+                pageSize={this.pageSize}
+                country="in"
+                category="sports"
+              />
             }
           ></Route>
           <Route
@@ -58,7 +64,7 @@ export default class Classcomponent extends Component {
             element={
               <News
                 key="science"
-                pageSize={6}
+                pageSize={this.pageSize}
                 country="in"
                 category="science"
               />
@@ -70,7 +76,7 @@ export default class Classcomponent extends Component {
             element={
               <News
                 key="technology"
-                pageSize={6}
+                pageSize={this.pageSize}
                 country="in"
                 category="technology"
               />
@@ -80,12 +86,17 @@ export default class Classcomponent extends Component {
             exact
             path="/health"
             element={
-              <News key="health" pageSize={6} country="in" category="health" />
+              <News
+                key="health"
+                pageSize={this.pageSize}
+                country="in"
+                category="health"
+              />
             }
           ></Route>
         </Routes>
 
-        {/* <News key="" pageSize={6} country="in" category="sports" /> */}
+        {/* <News key="" pageSize={this.pageSize} country="in" category="sports" /> */}
       </div>
     );
   }
