@@ -3,10 +3,28 @@ import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
 
 export default class News extends Component {
-  constructor() {
+  static defaultProps = {
+    country: "in",
+    pageSize: 6,
+    category: "general",
+  };
+
+  // static propTypes = {
+  //   country: News.PropTypes.string,
+  //   pageSize: News.PropTypes.number,
+  //   category: News.PropTypes.string,
+  // };
+  capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  constructor(props) {
     console.log("contructor");
-    super();
+    super(props);
     this.state = { articles: [], loading: false, page: 1 };
+    document.title = `${this.capitalizeFirstLetter(
+      this.props.category
+    )} - NewsApp By AB360`;
   }
   async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=396c5457c306470294820130bdaebee5&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -19,16 +37,16 @@ export default class News extends Component {
       totalResults: data.totalResults,
       loading: false,
     });
-    console.log(data.totalResults);
   }
 
   async componentDidMount() {
     console.log("did mount", this.state.page);
     this.updateNews();
+    console.log(this.totalResults);
   }
 
   handlePrevClick = async () => {
-    // console.log("handlePrevClick");
+    console.log("handlePrevClick", this.state.page);
     // this.setState({ loading: true });
 
     // const res = await fetch(
@@ -53,7 +71,7 @@ export default class News extends Component {
   };
 
   handleNextClick = async () => {
-    // console.log("handleNextClick");
+    console.log("handleNextClick", this.state.page);
     // this.setState({ loading: true });
     // const res = await fetch(
     //   `https://newsapi.org/v2/top-headlines?country=${
