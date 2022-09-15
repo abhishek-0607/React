@@ -8,12 +8,10 @@ export default class News extends Component {
     super();
     this.state = { articles: [], loading: false, page: 1 };
   }
-  async componentDidMount() {
-    console.log("did mount");
+  async updateNews() {
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=396c5457c306470294820130bdaebee5&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
-    const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=396c5457c306470294820130bdaebee5&page=1&pageSize=${this.props.pageSize}`
-    );
+    const res = await fetch(url);
     const data = await res.json();
     // console.log(data.articles);
     this.setState({
@@ -21,51 +19,61 @@ export default class News extends Component {
       totalResults: data.totalResults,
       loading: false,
     });
+    console.log(data.totalResults);
+  }
+
+  async componentDidMount() {
+    console.log("did mount", this.state.page);
+    this.updateNews();
   }
 
   handlePrevClick = async () => {
-    console.log("handlePrevClick");
-    this.setState({ loading: true });
+    // console.log("handlePrevClick");
+    // this.setState({ loading: true });
 
-    const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${
-        this.props.country
-      }&category=${
-        this.props.category
-      }&apiKey=396c5457c306470294820130bdaebee5&page=${
-        this.state.page - 1
-      }&pageSize=${this.props.pageSize}`
-    );
-    const data = await res.json();
-    // console.log(data.articles);
+    // const res = await fetch(
+    //   `https://newsapi.org/v2/top-headlines?country=${
+    //     this.props.country
+    //   }&category=${
+    //     this.props.category
+    //   }&apiKey=396c5457c306470294820130bdaebee5&page=${
+    //     this.state.page - 1
+    //   }&pageSize=${this.props.pageSize}`
+    // );
+    // const data = await res.json();
+    // // console.log(data.articles);
 
-    this.setState({
-      page: this.state.page - 1,
-      articles: data.articles,
-      loading: false,
-    });
+    // this.setState({
+    //   page: this.state.page - 1,
+    //   articles: data.articles,
+    //   loading: false,
+    // });
+    this.setState({ page: this.state.page - 1 });
+    this.updateNews();
   };
 
   handleNextClick = async () => {
-    console.log("handleNextClick");
-    this.setState({ loading: true });
-    const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${
-        this.props.country
-      }&category=${
-        this.props.category
-      }&apiKey=396c5457c306470294820130bdaebee5&page=${
-        this.state.page + 1
-      }&pageSize=${this.props.pageSize}`
-    );
-    const data = await res.json();
-    // console.log(data.articles);
+    // console.log("handleNextClick");
+    // this.setState({ loading: true });
+    // const res = await fetch(
+    //   `https://newsapi.org/v2/top-headlines?country=${
+    //     this.props.country
+    //   }&category=${
+    //     this.props.category
+    //   }&apiKey=396c5457c306470294820130bdaebee5&page=${
+    //     this.state.page + 1
+    //   }&pageSize=${this.props.pageSize}`
+    // );
+    // const data = await res.json();
+    // // console.log(data.articles);
 
-    this.setState({
-      page: this.state.page + 1,
-      articles: data.articles,
-      loading: false,
-    });
+    // this.setState({
+    //   page: this.state.page + 1,
+    //   articles: data.articles,
+    //   loading: false,
+    // });
+    this.setState({ page: this.state.page + 1 });
+    this.updateNews();
   };
 
   render() {
@@ -86,12 +94,15 @@ export default class News extends Component {
               {this.state.articles.map((e, i) => (
                 <div className="col-md-4" key={i}>
                   <Newsitem
+                    source={e.source.name}
                     title={e.title != null ? e.title.slice(0, 40) : ""}
                     description={
-                      e.description != null ? e.description.slice(0, 85) : ""
+                      e.description != null ? e.description.slice(0, 80) : ""
                     }
                     imgUrl={e.urlToImage}
                     newsUrl={e.url}
+                    author={e.author}
+                    date={e.publishedAt}
                   />
                 </div>
               ))}
