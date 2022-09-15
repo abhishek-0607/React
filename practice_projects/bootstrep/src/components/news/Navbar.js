@@ -8,7 +8,7 @@ export default class Navbar extends Component {
         <nav className="navbar navbar-expand-lg bg-dark">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
-              NewsMonkey
+              NewsApp By AB360
             </Link>
             <button
               className="navbar-toggler"
@@ -33,32 +33,32 @@ export default class Navbar extends Component {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/business">
-                    business
+                    Business
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/entertainment">
-                    entertainment
+                    Entertainment
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/health">
-                    health
+                    Health
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/science">
-                    science
+                    Science
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/sports">
-                    sports
+                    Sports
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/technology">
-                    technology
+                    Technology
                   </Link>
                 </li>
               </ul>
