@@ -39,7 +39,7 @@ export default class News extends Component {
     });
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     console.log("did mount", this.state.page);
     this.updateNews();
     console.log(this.totalResults);
@@ -98,12 +98,12 @@ export default class News extends Component {
     console.log("render");
     return (
       <div className="container my-3">
-        <h1
+        <h2
           className="text-center"
           style={{ margin: "30px 0", textDecoration: "underline" }}
         >
-          Top headlines
-        </h1>
+          Top {this.capitalizeFirstLetter(this.props.category)} Headlines
+        </h2>
         {this.state.loading ? (
           <Spinner />
         ) : (
