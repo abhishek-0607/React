@@ -32,7 +32,7 @@ export const Covid = () => {
             <p className="cardName">
               <span>OUR</span>COUNTRY
             </p>
-            <p className="cardTotal cardSmall">INDIA</p>
+            <p className="cardTotal cardSmall"></p>
           </div>
         </li>
 
