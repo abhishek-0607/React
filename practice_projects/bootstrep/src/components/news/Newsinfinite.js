@@ -51,9 +51,11 @@ export default class News extends Component {
     }&category=${this.props.category}&apiKey=${this.props.apikey}&page=${
       this.state.page + 1
     }&pageSize=${this.props.pageSize}`;
+
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.articles);
+
     this.setState({
       articles: this.state.articles.concat(data.articles),
       totalResults: data.totalResults,
