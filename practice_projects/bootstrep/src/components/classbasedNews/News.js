@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
+import PropTypes from "prop-types";
 
 export default class News extends Component {
   static defaultProps = {
@@ -9,11 +10,11 @@ export default class News extends Component {
     category: "general",
   };
 
-  // static propTypes = {
-  //   country: News.PropTypes.string,
-  //   pageSize: News.PropTypes.number,
-  //   category: News.PropTypes.string,
-  // };
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
+  };
   capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
