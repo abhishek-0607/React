@@ -5,7 +5,7 @@ import "./App.css";
 // import { Todo } from "./components/Todo/Todo";
 import { BrowserRouter } from "react-router-dom";
 
-import Classcomponent from "./components/news/Classcomponent";
+import Classcomponent from "./components/classbasedNews/Classcomponent";
 
 function App() {
   return (
