@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
+import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default class News extends Component {
@@ -8,6 +9,11 @@ export default class News extends Component {
     country: "in",
     pageSize: 6,
     category: "general",
+  };
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
   };
 
   capitalizeFirstLetter = (string) => {
