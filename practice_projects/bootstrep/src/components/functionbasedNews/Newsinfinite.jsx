@@ -31,6 +31,13 @@ export const Newsinfinite = (props) => {
     props.setProgress(100);
   };
 
+  useEffect(() => {
+    document.title = `${capitalizeFirstLetter(
+      props.category
+    )} - NewsApp By AB360`;
+    updateNews();
+  }, []);
+
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${
       props.country
@@ -44,13 +51,6 @@ export const Newsinfinite = (props) => {
     setArticles(articles.concat(data.articles));
     setTotalResults(data.totalResults);
   };
-
-  useEffect(() => {
-    document.title = `${capitalizeFirstLetter(
-      props.category
-    )} - NewsApp By AB360`;
-    updateNews();
-  }, []);
 
   console.log("render");
   return (
