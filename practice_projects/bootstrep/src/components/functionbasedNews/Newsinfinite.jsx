@@ -22,23 +22,14 @@ export const Newsinfinite = (props) => {
     setLoading(true);
     props.setProgress(30);
     const res = await fetch(url);
-
     const data = await res.json();
     props.setProgress(70);
-
     // console.log(data.articles);
-
     setArticles(data.articles);
     setTotalResults(data.totalResults);
     setLoading(false);
     props.setProgress(100);
   };
-  useEffect(() => {
-    document.title = `${capitalizeFirstLetter(
-      props.category
-    )} - NewsApp By AB360`;
-    updateNews();
-  }, []);
 
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${
@@ -47,14 +38,19 @@ export const Newsinfinite = (props) => {
       page + 1
     }&pageSize=${props.pageSize}`;
     setPage(page + 1);
-
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.articles);
-
     setArticles(articles.concat(data.articles));
     setTotalResults(data.totalResults);
   };
+
+  useEffect(() => {
+    document.title = `${capitalizeFirstLetter(
+      props.category
+    )} - NewsApp By AB360`;
+    updateNews();
+  }, []);
 
   console.log("render");
   return (
@@ -100,7 +96,7 @@ export const Newsinfinite = (props) => {
   );
 };
 
-Newsinfinite.faultProps = {
+Newsinfinite.defaultProps = {
   country: "in",
   pageSize: 6,
   category: "general",
