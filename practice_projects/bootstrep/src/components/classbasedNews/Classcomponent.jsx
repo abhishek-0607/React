@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Newsinfinite from "./Newsinfinite";
 import { Route, Routes } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+// import News from "./News";
 
 export default class Classcomponent extends Component {
   pageSize = 6;
