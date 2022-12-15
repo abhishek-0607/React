@@ -4,7 +4,10 @@ export const Demo = () => {
   //const test = useRef(1);
   //console.log("Rerendered: ", test);
   //const [d, setD] = useState(1);
-  const inputRef = useRef(null);
+  const a = useRef(null);
+  const b = useRef(1);
+  const c = useRef(2);
+  const d = useRef(3);
 
   return (
     <div>
@@ -24,9 +27,49 @@ export const Demo = () => {
       >
         Increment Test
       </button> */}
+      <button
+        onClick={() => {
+          a.current.scrollIntoView({
+            behavior: "smooth",
+          });
+          console.log(a.current.value);
+        }}
+      >
+        Scroll on 1
+      </button>
+      <button
+        onClick={() => {
+          b.current.scrollIntoView({
+            behavior: "smooth",
+          });
+          console.log(b.current.value);
+        }}
+      >
+        Scroll on 2
+      </button>
+      <button
+        onClick={() => {
+          c.current.scrollIntoView({
+            behavior: "smooth",
+          });
+          console.log(c.current.value);
+        }}
+      >
+        Scroll on 3
+      </button>
+      <button
+        onClick={() => {
+          d.current.scrollIntoView({
+            behavior: "smooth",
+          });
+          console.log(d.current.value);
+        }}
+      >
+        Scroll on 4
+      </button>
 
       <div
-        ref={inputRef}
+        ref={a}
         style={{
           width: "300px",
           height: "300px",
@@ -36,6 +79,7 @@ export const Demo = () => {
         1
       </div>
       <div
+        ref={b}
         style={{
           width: "300px",
           height: "300px",
@@ -45,6 +89,7 @@ export const Demo = () => {
         2
       </div>
       <div
+        ref={c}
         style={{
           width: "300px",
           height: "300px",
@@ -54,6 +99,7 @@ export const Demo = () => {
         3
       </div>
       <div
+        ref={d}
         style={{
           width: "300px",
           height: "300px",
@@ -62,16 +108,6 @@ export const Demo = () => {
       >
         4
       </div>
-      <button
-        onClick={() => {
-          inputRef.current.scrollIntoView({
-            behavior: "smooth",
-          });
-          console.log(inputRef.current.value);
-        }}
-      >
-        Scroll on top
-      </button>
     </div>
   );
 };
