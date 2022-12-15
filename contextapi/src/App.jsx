@@ -16,9 +16,11 @@ function App() {
     <div className="App">
       {/* <Navbar />
       <Body /> */}
-      <Form onSubmit={onSubmit} title="LOGIN">
+      {/* <Form onSubmit={onSubmit} title="LOGIN">
         <input placeholder="name" />
-      </Form>
+      </Form> */}
+
+      <Form></Form>
     </div>
   );
 }
