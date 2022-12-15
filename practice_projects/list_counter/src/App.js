@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Checkbox } from "./components/Checkbox";
 import Form1 from "./components/Form";
 import { TodoUseEffect } from "./components/TodoUseEffect";
 import Useeffect from "./components/Useeffect";
@@ -8,6 +9,7 @@ import Useeffect1 from "./components/Useeffect1";
 function App() {
   return (
     <div className="App">
+      <Checkbox />
       <Form1 />
       {/* <Todo />
 
