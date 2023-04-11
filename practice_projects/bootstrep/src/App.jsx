@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 
 // import Classcomponent from "./components/classbasedNews/Classcomponent";
-import { FunctionComponent } from "./components/functionbasedNews/FunctionComponent";
+import { FunctionComponent } from "./components/functionbasedNews/functionComponent";
 
 function App() {
   return (
