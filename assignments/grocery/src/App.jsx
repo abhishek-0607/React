@@ -1,11 +1,10 @@
-import { Grocery } from "./components/Grocery";
 import "./App.css";
-import { Todo } from "./components/Todo";
+import { Interview } from "./components/Interview";
+
 function App() {
   return (
     <div className="App">
-      <Grocery />
-      <Todo />
+      <Interview />
     </div>
   );
 }
